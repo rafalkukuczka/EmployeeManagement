@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Core.Domain.Employee
 {
-    internal class Employee
+    public class Employee
     {
         public Guid Id { get; }
 
@@ -22,7 +22,7 @@ namespace EmployeeManagement.Core.Domain.Employee
             Gender = gender;
         }
 
-        void Update(LastName lastName, Gender gender)
+        public void Update(LastName lastName, Gender gender)
         {
             LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
             Gender = gender;

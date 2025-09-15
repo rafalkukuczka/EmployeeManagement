@@ -1,6 +1,6 @@
 ﻿namespace EmployeeManagement.Core.Domain.Employee
 {
-    internal class EmployeeNumber 
+    public class EmployeeNumber 
     {
         public string Value { get; }
         public EmployeeNumber(int no)

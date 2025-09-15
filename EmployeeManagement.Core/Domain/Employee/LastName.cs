@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Core.Domain.Employee
 {
-    internal class LastName
+    public class LastName
     {
         public string Value{ get; }
         public LastName(string name)
