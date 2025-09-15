@@ -26,6 +26,22 @@
             Assert.Equal(lastName, employee.LastName);
             Assert.Equal(gender, employee.Gender);
 
+        }
+
+        [Fact]
+        public void Update_Should_Modify_Properties()
+        {
+            // Arrange
+            
+            var employee = new Employee(new EmployeeNumber(1), new LastName("Kowalska"), Gender.Female);
+
+            // Act
+
+            employee.Update(new LastName("Kowalski"), Gender.Male);
+
+            // Assert
+
+            Assert.Equal(new LastName("Kowalski"), employee.LastName);
 
         }
     }

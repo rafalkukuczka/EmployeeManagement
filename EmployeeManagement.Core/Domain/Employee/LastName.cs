@@ -22,5 +22,27 @@ namespace EmployeeManagement.Core.Domain.Employee
         {
             return Value.ToString();
         }
+
+        // Equality
+
+        public bool Equals(LastName? other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+
+            return string.Equals(Value, other.Value, StringComparison.OrdinalIgnoreCase);
+        }
+
+        public override bool Equals(object? obj) => Equals(obj as LastName);
+
+        public override int GetHashCode() =>
+            Value.GetHashCode(StringComparison.OrdinalIgnoreCase);
+
+        public static bool operator ==(LastName? left, LastName? right) =>
+            Equals(left, right);
+
+        public static bool operator !=(LastName? left, LastName? right) =>
+            !Equals(left, right);
+
     }
 }
