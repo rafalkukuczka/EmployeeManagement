@@ -11,7 +11,7 @@ namespace EmployeeManagement.Core.Domain.Employee.Interfaces
         
         Task AddAsync(Employee employee);
         Task<IEnumerable<Employee>> GetAllAsync();
-        Task<Employee?> GetByIdAsync(Guid id);
+        Task<Employee?> GetByEmployeeNumberAsync(EmployeeNumber employeeNumber);
         Task UpdateAsync(Employee employee);
 
     }

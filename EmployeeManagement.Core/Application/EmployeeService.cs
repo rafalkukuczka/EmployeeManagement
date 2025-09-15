@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Core.Application
 {
-    internal class EmployeeService
+    public class EmployeeService
     {
         private IEmployeeRepository _repository;
         private IEmployeeNumberGenerator _generator;
@@ -32,15 +32,9 @@ namespace EmployeeManagement.Core.Application
 
         }
 
-        public async Task<Employee> UpdateEmployeeAsync(Guid id, string lastName, Gender gender)
+        public async Task<Employee> UpdateEmployeeAsync(int employeeNumber, string lastName, Gender gender)
         {
-            var employee = await _repository.GetByIdAsync(id);
-
-            if (employee == null)
-            {
-                throw new ArgumentException("Employee not found", nameof(id));
-            }
-
+            var employee = await _repository.GetByEmployeeNumberAsync(new EmployeeNumber(employeeNumber) ?? throw new ArgumentException("Employee not found", nameof(employeeNumber)));
             employee.Update(new LastName(lastName), gender);
 
             await _repository.UpdateAsync(employee);
